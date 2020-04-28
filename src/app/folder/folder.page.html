@@ -17,5 +17,15 @@
   <div id="container">
     <strong class="capitalize">{{ folder }}</strong>
     <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-button (click)="increment()">
+      Increment
+    </ion-button>
+    <div>Current Count: {{ count$ | async }}</div>
+    <ion-button (click)="decrement()">
+      Decrement
+    </ion-button>
+    <ion-button (click)="reset()">
+      Reset Counter
+    </ion-button>
   </div>
 </ion-content>
