@@ -8,9 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { StoreModule } from '@ngrx/store';
-import { counterReducer } from "./store/counter/reducers";
-
+import { StateModule } from './state/state.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,9 @@ import { counterReducer } from "./store/counter/reducers";
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    StoreModule.forRoot({ count: counterReducer })
+    StateModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([])
   ],
   providers: [
     StatusBar,
@@ -28,4 +31,4 @@ import { counterReducer } from "./store/counter/reducers";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

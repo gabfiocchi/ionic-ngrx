@@ -16,7 +16,14 @@
 
   <div id="container">
     <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <p>{{ message$ | async }}</p>
+    <ion-button (click)="spanishMessage()">
+      Spanish
+    </ion-button>
+    <ion-button (click)="frenchMessage()">
+      French
+    </ion-button>
+    <hr>
     <ion-button (click)="increment()">
       Increment
     </ion-button>
@@ -27,5 +34,22 @@
     <ion-button (click)="reset()">
       Reset Counter
     </ion-button>
+  </div>
+  <div *ngIf="post$ | async as p">
+
+
+    <h2>{{ p.text }}</h2>
+    <h4>Votes: {{ p.likes }}</h4>
+
+    <ion-button (click)="upvote()">Upvote</ion-button>
+    <ion-button (click)="downvote()">Downvote</ion-button>
+    <ion-button (click)="resetPost()">Reset</ion-button>
+
+
+    <ion-item>
+      <ion-input [(ngModel)]="text"></ion-input>
+    </ion-item>
+    <ion-button (click)="editText()">Change Title</ion-button>
+
   </div>
 </ion-content>
