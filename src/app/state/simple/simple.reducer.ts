@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
 export function simpleReducer(state: string = 'Hello World', action: Action) {
-
+console.log('simpleReducer')
     switch (action.type) {
 
         case 'SPANISH':

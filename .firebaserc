@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "testing-ngrx-fire": {
+      "hosting": {
+        "app": [
+          "testing-ngrx-fire"
+        ]
+      }
+    }
+  }
+}
